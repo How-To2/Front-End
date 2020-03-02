@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, BrowserRouter as Router } from 'react-router-dom';
+import PrivateRoute from '../utils/PrivateRoute';
+import Dashboard from './Dashboard';
 
 const Navigation = props => {
 
@@ -11,6 +13,8 @@ const Navigation = props => {
                 <Link to='/dashboard'>Dashboard</Link>
                 <Link to='/login'>Login</Link>
             </div>
+
+            <PrivateRoute path='/dashboard' component={Dashboard}/>
 
         </Router>
         </>
