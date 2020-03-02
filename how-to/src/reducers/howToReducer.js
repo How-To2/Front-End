@@ -2,6 +2,7 @@ export const initialState = {
     title: '',
     body: '',
     author: '',
+    isLoggedIn: false,
     isFetching: false,
     error: ''
 }
