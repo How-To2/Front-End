@@ -4,6 +4,7 @@ const Dashboard = props => {
 
     return (
         <>
+        <h2>Dashboard Component</h2>
         </>
     )
 }

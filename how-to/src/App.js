@@ -1,10 +1,14 @@
 import React from "react";
 import Login from "./components/Login";
 
+import Login from './components/Login';
+import Navigation from './components/Navigation';
+
 function App() {
   return (
     <div className="App">
-      <h1>How-To App</h1>
+      <Navigation />
+      <Login />
     </div>
   );
 }
