@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link, BrowserRouter as Router } from 'react-router-dom';
+import { Link, Route, BrowserRouter as Router } from 'react-router-dom';
 import PrivateRoute from '../utils/PrivateRoute';
+
+import Login from './Login';
 import Dashboard from './Dashboard';
 
 const Navigation = props => {
@@ -14,7 +16,8 @@ const Navigation = props => {
                 <Link to='/login'>Login</Link>
             </div>
 
-            <PrivateRoute path='/dashboard' component={Dashboard}/>
+            <Route path='/login' component={Login}/>
+            <Route path='/dashboard' component={Dashboard}/>
 
         </Router>
         </>
