@@ -3,30 +3,42 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
-  justify-content: center;
+  width: 100%;
   flex-direction: column;
   align-items: center;
 `;
 
 const FormContainer = styled.form`
-  width:50%;
+  width: 50%;
+  border-radius: 15px;
+  margin: 2%;
   display: flex;
   flex-direction: column;
-  justify-content:center:
+  border: 5px #016fb9 solid;
+  align-items: center;
+`;
+
+const StyledButton = styled.button`
+  margin: 2%;
+  width: 15%;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  background-color: #016fb9;
 `;
 
 const Login = props => {
   return (
     <Container>
-      <h1>Login</h1>
       <FormContainer>
+        <h2>Login</h2>
         <label>User Name</label>
         <input type="text" name="userName" />
 
         <label>Password</label>
         <input type="password" name="password" />
 
-        <button type="submit">Login</button>
+        <StyledButton type="submit">Login</StyledButton>
       </FormContainer>
     </Container>
   );
