@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
 const HowTo = props => {
-    console.log(props)
+  console.log(props);
 
-    return (
-        <>
-            <p>Article Post</p>
-        </>
-    )
-}
+  return (
+    <>
+      <p>Article Post</p>
+    </>
+  );
+};
 
 export default HowTo;

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Review from "./Review";
 
 const Container = styled.div`
   display: flex;
