@@ -1,10 +1,13 @@
 import React from 'react';
 
+import HowToList from './HowToList';
+
 const Dashboard = props => {
 
     return (
         <>
-        <h2>Dashboard Component</h2>
+        <h2>Welcome 'Username'!</h2>
+            <HowToList/>
         </>
     )
 }
