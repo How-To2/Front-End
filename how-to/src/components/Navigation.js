@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Route, BrowserRouter as Router } from 'react-router-dom';
 import PrivateRoute from '../utils/PrivateRoute';
+import HowTo from './HowTo';
 
 import Login from './Login';
 import Dashboard from './Dashboard';
