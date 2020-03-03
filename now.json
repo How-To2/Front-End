@@ -1,0 +1,19 @@
+{
+    "version": 2,
+    "name": "how-to",
+    "builds": [
+      { 
+       "src": "how-to/package.json", 
+       "use": "@now/static-build", 
+       "config": {
+          "distDir": "build"
+          } 
+       }
+      ],
+    "routes": [
+        { 
+           "src": "/(.*)", 
+           "dest": "how-to/$1" 
+        }
+    ]
+}
