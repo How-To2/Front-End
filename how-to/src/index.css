@@ -20,18 +20,6 @@ code {
   justify-content: space-evenly;
 }
 
-.articles-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-}
-
-.article {
-  width: 25%;
-  height: auto;
-  border: 1px solid grey;
-}
-
 /* Modal Styling  */
 
 .modal {
