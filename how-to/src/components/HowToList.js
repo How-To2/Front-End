@@ -46,7 +46,18 @@ const HowToList = props => {
             <Posts>
               <h2>{art.title}</h2>
               <p>{art.body}</p>
-              <Link to={`/dashboard/posts/${art.id}`}>View Full Article</Link>
+              <Link
+                style={{
+                  color: "white",
+                  backgroundColor: "#016fb9",
+                  borderRadius: "10px",
+                  padding: "1% 3%",
+                  textDecoration: "none"
+                }}
+                to={`/dashboard/posts/${art.id}`}
+              >
+                View Full Article
+              </Link>
             </Posts>
           </Background>
         );
