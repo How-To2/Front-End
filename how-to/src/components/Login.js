@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { axiosWithAuth } from '../utils/axiosWithAuth';
+import axios from 'axios';
 
 const Container = styled.div`
   display: flex;
@@ -28,15 +30,38 @@ const StyledButton = styled.button`
 `;
 
 const Login = props => {
+
+  const [login, setLogin] = useState({
+    username: '',
+    password: ''
+  })
+
+  const handleChange = e => {
+    setLogin({
+      ...login,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    axios.get('https://how-to-bw2.herokuapp.com').then(res => {
+      console.log(res)
+    })
+    .catch(err => console.log(err))
+
+  }
+
+
   return (
     <Container>
-      <FormContainer>
+      <FormContainer onSubmit={handleSubmit}>
         <h2>Login</h2>
         <label>User Name</label>
-        <input type="text" name="userName" />
+        <input type="text" name="username" onChange={handleChange} />
 
         <label>Password</label>
-        <input type="password" name="password" />
+        <input type="password" name="password" onChange={handleChange}/>
 
         <StyledButton type="submit">Login</StyledButton>
       </FormContainer>
