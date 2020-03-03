@@ -3,7 +3,7 @@ import React from 'react';
 import NewPost from './NewPost';
 import HowToList from './HowToList';
 
-import {Link, Route, BrowserRouter as Router } from 'react-router-dom';
+import {Link, Route } from 'react-router-dom';
 import HowTo from './HowTo';
 
 const dummyData = [
