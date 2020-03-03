@@ -3,9 +3,6 @@ import styled from "styled-components";
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import axios from 'axios';
 
-import { connect } from 'react-redux';
-import { logIn } from '../actions/index';
-
 const Container = styled.div`
   display: flex;
   width: 100%;
@@ -68,13 +65,4 @@ const Login = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    title: state.title,
-    body: state.body,
-    author: state.author,
-    isFetching: state.isFetching
-  }
-}
-
-export default connect(mapStateToProps, {logIn})(Login)
+export default Login;

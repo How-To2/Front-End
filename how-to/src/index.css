@@ -20,6 +20,20 @@ code {
   justify-content: space-evenly;
 }
 
+.app-title {
+  color: #FF9505;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+}
+
+.navbar a:hover {
+  color: #FF9505
+}
+
 /* Modal Styling  */
 
 .modal {
