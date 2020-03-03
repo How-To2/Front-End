@@ -1,11 +1,7 @@
-import React from 'react';
-
+import React from "react";
+import Review from "./Review";
 const ReviewList = props => {
-
-    return (
-        <>
-        </>
-    )
-}
+  return <Review />;
+};
 
 export default ReviewList;
