@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import axios from 'axios';
 
+import { connect } from 'react-redux';
+import { logIn } from '../actions/index';
+
 const Container = styled.div`
   display: flex;
   width: 100%;
@@ -45,10 +48,6 @@ const Login = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    axios.get('https://how-to-bw2.herokuapp.com').then(res => {
-      console.log(res)
-    })
-    .catch(err => console.log(err))
 
   }
 
@@ -69,4 +68,13 @@ const Login = props => {
   );
 };
 
-export default Login;
+const mapStateToProps = state => {
+  return {
+    title: state.title,
+    body: state.body,
+    author: state.author,
+    isFetching: state.isFetching
+  }
+}
+
+export default connect(mapStateToProps, {logIn})(Login)
