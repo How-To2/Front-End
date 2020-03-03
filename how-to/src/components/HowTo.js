@@ -8,6 +8,7 @@ const HowTo = props => {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
     background-color: #353531;
     height: 100vh;
   `;
