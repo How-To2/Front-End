@@ -4,7 +4,7 @@ const HowTo = props => {
 
     return (
         <>
-            <p>Article Post</p>
+            <h1>POSTS PAGE</h1>
         </>
     )
 }
