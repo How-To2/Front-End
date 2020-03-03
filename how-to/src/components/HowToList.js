@@ -20,7 +20,6 @@ const dummyData = [
 const HowToList = props => {
 
     return (
-        <Router>
         <div className='articles-container'>
             {dummyData.map(art => {
                 return (
@@ -32,7 +31,6 @@ const HowToList = props => {
                 )
             })}
         </div>
-        </Router>
     )
 }
 

@@ -10,7 +10,6 @@ const Navigation = props => {
 
     return (
         <>
-        <Router>
             <div className='navbar'>
                 <h1>How-To App</h1>
                 <Link to='/dashboard'>Dashboard</Link>
@@ -19,8 +18,6 @@ const Navigation = props => {
 
             <Route path='/login' component={Login}/>
             <Route path='/dashboard' component={Dashboard}/>
-
-        </Router>
         </>
     )
 }
