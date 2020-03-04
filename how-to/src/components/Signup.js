@@ -51,13 +51,14 @@ const Signup = props => {
       username: "Bob",
       passworrd: "Pieee"
     };
-    let result = await axios.post(
-      "https://how-to-bw2.herokuapp.com/api/auth/register",
-      params
-    );
-
-    console.log(result.data);
+    await axios
+      .post("https://how-to-bw2.herokuapp.com/api/auth/register", params)
+      .then(resposnse => {
+        console.log(resposnse);
+      });
   }
+
+  makePostRequest();
 
   return (
     <Container>
