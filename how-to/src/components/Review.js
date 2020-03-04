@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-const Review = props => {
-  const UserReview = styled.div`
+
+const UserReview = styled.div`
   margin: 2%;
   padding 2%;
   width:50%;
@@ -13,6 +13,8 @@ const Review = props => {
     display: flex;
     justify-content: space-evenly;
   `;
+
+const Review = props => {
 
   return (
     <UserReview>

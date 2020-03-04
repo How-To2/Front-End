@@ -1,12 +1,12 @@
 import React from "react";
 import { Link, Route, BrowserRouter as Router } from "react-router-dom";
 import PrivateRoute from "../utils/PrivateRoute";
+
 import logo from "../images/logo-new.png";
 
 import Signup from "./Signup";
-
+import HowTo from "./HowTo";
 import styled from "styled-components";
-
 import Login from "./Login";
 import Dashboard from "./Dashboard";
 
@@ -24,6 +24,7 @@ const ImageContainer = styled.div`
 `;
 
 const Navigation = props => {
+  
   return (
     <>
       <NavBar className="navbar">
