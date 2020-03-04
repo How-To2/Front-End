@@ -20,6 +20,17 @@ body {
   padding-bottom: 15px;
 }
 
+.step-list {
+  list-style-type: none;
+  width: 350px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+li {
+  margin: 3.5% 0;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
