@@ -4,10 +4,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
-
 const Background = styled.div`
-box-sizing: border-box;
-background-color: #353531;
+  box-sizing: border-box;
+  background-color: #353531;
 `;
 
 const Posts = styled.div`
@@ -21,7 +20,6 @@ border: #016FB9 solid 5px;
 `;
 
 const HowToList = props => {
-
   return (
     <div className="articles-container">
       {props.guides.map(art => {
@@ -29,7 +27,7 @@ const HowToList = props => {
           <Background>
             <Posts>
               <h2>{art.guide_name}</h2>
-              <p className='desc'>{art.description}</p>
+              <p className="desc">{art.description}</p>
               <Link
                 style={{
                   color: "white",
@@ -54,7 +52,7 @@ const mapStateToProps = state => {
   return {
     guides: state.guides,
     author: state.author
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, {})(HowToList)
+export default connect(mapStateToProps, {})(HowToList);
