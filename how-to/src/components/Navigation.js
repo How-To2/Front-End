@@ -1,28 +1,21 @@
 import React from "react";
 import { Link, Route, BrowserRouter as Router } from "react-router-dom";
 import PrivateRoute from "../utils/PrivateRoute";
-
-
 import Signup from './Signup';
-
-
-
-
 import HowTo from "./HowTo";
-
 import styled from "styled-components";
-
 import Login from "./Login";
 import Dashboard from "./Dashboard";
 
-const Navigation = props => {
-  const NavBar = styled.div`
+const NavBar = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     border-bottom: black solid 2px;
   `;
+
+const Navigation = props => {
 
   return (
     <>
