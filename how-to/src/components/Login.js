@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { connect } from 'react-redux';
+import { loginUser } from '../actions/index';
 import axios from 'axios';
 
 const Container = styled.div`
@@ -45,6 +47,8 @@ const Login = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    props.loginUser(login)
+    props.history.push('/dashboard')
     
   }
 
@@ -65,4 +69,11 @@ const Login = props => {
   );
 };
 
-export default Login;
+const mapStateToProps = state => {
+  return {
+    isFetching: state.isFetching,
+    isLoggedIn: state.isLoggedIn
+  }
+}
+
+export default connect(mapStateToProps, { loginUser })(Login);

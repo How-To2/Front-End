@@ -3,9 +3,7 @@ import { Link, Route, BrowserRouter as Router } from "react-router-dom";
 import PrivateRoute from "../utils/PrivateRoute";
 
 import Signup from './Signup';
-
 import HowTo from "./HowTo";
-
 
 import styled from "styled-components";
 
@@ -31,7 +29,7 @@ const Navigation = props => {
       </NavBar>
       <Route path="/signup" component={Signup} />
       <Route path="/login" component={Login} />
-      <Route path="/dashboard" component={Dashboard} />
+      <PrivateRoute path="/dashboard" component={Dashboard} />
     </>
   );
 };

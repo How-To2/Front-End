@@ -7,6 +7,8 @@ import { Link, Route } from "react-router-dom";
 import HowTo from "./HowTo";
 
 import styled from "styled-components";
+import { connect } from "react-redux";
+import { getPosts } from '../actions';
 
 const dummyData = [
   {
@@ -26,6 +28,7 @@ const dummyData = [
 ];
 
 const Dashboard = props => {
+  const displayName = localStorage.getItem('author')
 
   const UserNameContainer = styled.div`
     display: flex;
@@ -39,10 +42,12 @@ const Dashboard = props => {
     align-items: center;
     color: white;
   `;
+
+
   return (
     <UserNameContainer>
       <UserNameContent>
-        <h2>Welcome 'Username'!</h2>
+        <h2>Welcome, {displayName}!</h2>
 
         <Link
           style={{
@@ -53,6 +58,7 @@ const Dashboard = props => {
             textDecoration: "none"
           }}
           to="/dashboard/posts"
+          onClick={props.getPosts}
         >
           View Posts
         </Link>
@@ -77,4 +83,11 @@ const Dashboard = props => {
   );
 };
 
-export default Dashboard;
+const mapStateToProps = state => {
+  return {
+    author: state.author,
+    isLoggedIn: state.isLoggedIn
+  }
+}
+
+export default connect(mapStateToProps, { getPosts })(Dashboard)
