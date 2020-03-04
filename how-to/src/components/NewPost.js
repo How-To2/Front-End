@@ -5,14 +5,16 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 5%;
+  margin: 2% 5%;
   padding: 1%;
   color: white;
   border: white 2px solid;
   border-radius: 15px;
 `;
 
-const Container = styled.div``;
+const Container = styled.div`
+  height: 100vh;
+`;
 
 const StyledButton = styled.button`
   border-radius: 10px;
