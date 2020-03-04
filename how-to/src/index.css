@@ -9,7 +9,7 @@ body {
 }
 
 .articles-container {
-  display:flex;
+  display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   width: 80%;
@@ -33,7 +33,7 @@ code {
 }
 
 .app-title {
-  color: #FF9505;
+  color: #ff9505;
 }
 
 .navbar a {
@@ -43,7 +43,7 @@ code {
 }
 
 .navbar a:hover {
-  color: #FF9505
+  color: #ff9505;
 }
 
 /* Modal Styling  */
