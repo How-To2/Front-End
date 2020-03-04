@@ -2,8 +2,6 @@ import React from "react";
 import HowTo from "./HowTo";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import axios from 'axios';
-import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { connect } from "react-redux";
 
 
@@ -23,8 +21,6 @@ border: #016FB9 solid 5px;
 `;
 
 const HowToList = props => {
-
-  console.log(props)
 
   return (
     <div className="articles-container">
@@ -57,8 +53,7 @@ const HowToList = props => {
 const mapStateToProps = state => {
   return {
     guides: state.guides,
-    author: state.author,
-    isLoggedIn: state.isLoggedIn
+    author: state.author
   }
 }
 

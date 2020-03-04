@@ -1,9 +1,10 @@
-import { CREATE_USER, FETCH_USER, DELETE_POST, DELETE_REVIEW, ADD_POST, ADD_REVIEW, LOG_OUT, UPDATE_USER, LIKE_POST, LOGIN_USER, GET_POSTS } from '../actions/index';
+import { CREATE_USER, FETCH_USER, DELETE_POST, DELETE_REVIEW, ADD_POST, ADD_REVIEW, LOG_OUT, UPDATE_USER, LIKE_POST, LOGIN_USER, GET_POSTS, READ_POST } from '../actions/index';
 
 export const initialState = {
     title: '',
     howto: '',
     guides: [],
+    singleGuide: {},
     author: '',
     isLoggedIn: false,
     isFetching: false,
@@ -33,6 +34,11 @@ export const howToReducer = (state = initialState, action) => {
             return {
                 ...state,
                 guides: action.payload
+            }
+        case READ_POST:
+            return {
+                ...state,
+                singleGuide: action.payload
             }
         default:
             return {

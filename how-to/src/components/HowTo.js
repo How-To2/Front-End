@@ -1,49 +1,54 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import ReviewList from "./ReviewList";
 import { connect } from 'react-redux';
+import { getPostId } from '../actions/index';
+import { useParams } from "react-router-dom";
 
-const HowTo = props => {
-  const Background = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    background-color: #353531;
-  `;
+const Background = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+box-sizing: border-box;
+background-color: #353531;
+`;
 
-  const UserPost = styled.div`
-    width:80%;
-    margin: 2%;
-    padding 2%;
-    background-color:white;
-    border-radius:15px;
-    border: #016FB9 solid 5px;
-  `;
+const UserPost = styled.div`
+width:80%;
+margin: 2%;
+padding 2%;
+background-color:white;
+border-radius:15px;
+border: #016FB9 solid 5px;
+`;
 
-  const AuthorLikes = styled.div`
-    display: flex;
-    justify-content: space-evenly;
-  `;
+const AuthorLikes = styled.div`
+display: flex;
+justify-content: space-evenly;
+`;
+
+const HowTo = (props) => {
+  let guideId = useParams();
+
+  useEffect(() => {
+    props.getPostId(guideId.id);
+  }, [])
 
   return (
     <Background>
       <UserPost>
-        <h1>Post Title</h1>
+        <h1>{props.singleGuide.guide ? props.singleGuide.guide.guide_name : null}</h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Scelerisque fermentum dui faucibus in. Aliquam nulla facilisi cras
-          fermentum odio eu. Aliquam ut porttitor leo a diam sollicitudin tempor
-          id. Proin fermentum leo vel orci porta non pulvinar. Id eu nisl nunc
-          mi ipsum faucibus vitae. Dolor morbi non arcu risus quis varius quam
-          quisque. Sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae.
-          Aliquet porttitor lacus luctus accumsan tortor posuere. Velit egestas
-          dui id ornare arcu. Gravida cum sociis natoque penatibus. Platea
-          dictumst vestibulum rhoncus est pellentesque elit ullamcorper
-          dignissim. Pharetra
+          {props.singleGuide.guide ? props.singleGuide.guide.description : null}
         </p>
+        <ul className='step-list'>
+          {props.singleGuide.steps ? (<>
+          {props.singleGuide.steps.map(item => {
+            return <li><strong>{item.step_number}.</strong> {item.step_name}</li>
+          })}
+          </>) : null}
+        </ul>
         <AuthorLikes>
           <h4>Author:</h4>
           <h4>Likes:</h4>
@@ -56,8 +61,8 @@ const HowTo = props => {
 
 const mapStateToProps = state => {
   return {
-    
+    singleGuide: state.singleGuide
   }
 }
 
-export default connect(mapStateToProps, {})(HowTo)
+export default connect(mapStateToProps, { getPostId })(HowTo)

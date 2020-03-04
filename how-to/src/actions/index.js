@@ -11,6 +11,7 @@ export const ADD_REVIEW = 'ADD_REVIEW';
 export const DELETE_REVIEW = 'DELETE_REVIEW';
 export const LIKE_POST = 'LIKE_POST';
 export const GET_POSTS = 'GET_POSTS';
+export const READ_POST = 'READ_POST';
 
 export const newUser = (account) => dispatch => {
     dispatch({ type: CREATE_USER })
@@ -34,7 +35,7 @@ export const loginUser = (account) => dispatch => {
 
 export const getPosts = () => dispatch => {
     axiosWithAuth().get('api/guides').then(res => {
-        console.log(res.data)
+        // console.log(res.data)
         dispatch({ type: GET_POSTS, payload: res.data })
     })
     .catch(err => console.log(err))
@@ -42,7 +43,8 @@ export const getPosts = () => dispatch => {
 
 export const getPostId = (id) => dispatch => {
     axiosWithAuth().get(`api/guides/${id}`).then(res => {
-        console.log(res)
+        // console.log(res.data)
+        dispatch({ type: READ_POST, payload: res.data })
     })
     .catch(err => console.log(err))
 }
