@@ -40,6 +40,13 @@ export const getPosts = () => dispatch => {
     .catch(err => console.log(err))
 }
 
+export const getPostId = (id) => dispatch => {
+    axiosWithAuth().get(`api/guides/${id}`).then(res => {
+        console.log(res)
+    })
+    .catch(err => console.log(err))
+}
+
 export const logOut = () => dispatch => {
     dispatch({ type: LOG_OUT })
     localStorage.removeItem('token')
