@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const StyledForm = styled.form`
@@ -24,6 +24,23 @@ const StyledButton = styled.button`
 `;
 
 const NewPost = props => {
+
+  const [post, setPost] = useState({
+    guide_name: '',
+    author: '',
+    author_id: '',
+    category: '',
+    img_url: '',
+    description: '',
+  })
+
+  const handleChange = e => {
+    setPost({
+      ...post,
+      [e.target.name]: e.target.value
+    })
+  }
+
   return (
     <Container>
       <StyledForm>
