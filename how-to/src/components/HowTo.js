@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import ReviewList from "./ReviewList";
+import { connect } from 'react-redux';
 
 const HowTo = props => {
   const Background = styled.div`
@@ -53,4 +54,10 @@ const HowTo = props => {
   );
 };
 
-export default HowTo;
+const mapStateToProps = state => {
+  return {
+    
+  }
+}
+
+export default connect(mapStateToProps, {})(HowTo)
