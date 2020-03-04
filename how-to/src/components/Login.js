@@ -45,7 +45,10 @@ const Login = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-
+    axios.get('https://how-to-bw2.herokuapp.com/').then(res => {
+      console.log(res)
+    })
+    .catch(err => console.log(err))
   }
 
 

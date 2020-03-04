@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import HowTo from "./HowTo";
 import { Link, Route, BrowserRouter as Router } from "react-router-dom";
 import styled from "styled-components";
+import axios from 'axios';
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const dummyData = [
   {
@@ -21,6 +23,7 @@ const dummyData = [
 ];
 
 const HowToList = props => {
+
   const Background = styled.div`
     display: flex;
     flex-flow: row wrap;

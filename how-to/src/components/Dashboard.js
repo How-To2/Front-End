@@ -26,6 +26,7 @@ const dummyData = [
 ];
 
 const Dashboard = props => {
+
   const UserNameContainer = styled.div`
     display: flex;
     flex-direction: column;
