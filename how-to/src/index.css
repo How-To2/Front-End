@@ -8,6 +8,18 @@ body {
   text-align: center;
 }
 
+.articles-container {
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 80%;
+  margin: 2% auto;
+}
+
+.desc {
+  padding-bottom: 15px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { connect } from 'react-redux';
+import { newUser } from '../actions/index';
 
 const Container = styled.div`
   display: flex;
@@ -28,20 +30,53 @@ const StyledButton = styled.button`
 `;
 
 const Signup = props => {
+
+  const [newAcc, setNewAcc] = useState({
+    username: '',
+    password: ''
+  })
+  const [log, setLog] = useState(false);
+
+  // console.log(props)
+
+  const handleNew = e => {
+    setNewAcc({
+      ...newAcc,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleCreate = e => {
+    e.preventDefault();
+    console.log(newAcc)
+    setLog(false)
+    props.newUser(newAcc)
+    setLog(true)
+    props.history.push('/dashboard')
+  }
+
+
   return (
     <Container>
-      <FormContainer>
+      <FormContainer onSubmit={handleCreate}>
         <h2>Sign Up</h2>
         <label>User Name</label>
 
-        <input type="text" name="userName" />
+        <input type="text" name="username" onChange={handleNew} />
         <label>Password</label>
 
-        <input type="text" name="password" />
+        <input type="password" name="password" onChange={handleNew} />
         <StyledButton type="submit">Sign Up</StyledButton>
       </FormContainer>
     </Container>
   );
 };
 
-export default Signup;
+const mapStateToProps = state => {
+  return {
+    isLoggedIn: state.isLoggedIn,
+    isFetching: state.isFetching
+  }
+}
+
+export default connect(mapStateToProps, { newUser })(Signup)

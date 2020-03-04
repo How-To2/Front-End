@@ -1,8 +1,10 @@
 import React from "react";
-import Navigation from "./components/Navigation";
+
+import Navigation from './components/Navigation';
+import { BrowserRouter as Router,Link } from 'react-router-dom';
+
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import Signup from "./components/Signup";
+
 
 function App() {
   const GradientBg = styled.div`
@@ -22,6 +24,7 @@ function App() {
   `;
 
   return (
+    <Router>
     <div className="App">
       <Navigation />
       <GradientBg>
@@ -40,6 +43,7 @@ function App() {
         </Link>
       </GradientBg>
     </div>
+    </Router>
   );
 }
 

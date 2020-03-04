@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import HowTo from "./HowTo";
-import { Link, Route, BrowserRouter as Router } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import axios from 'axios';
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { connect } from "react-redux";
 
 const dummyData = [
   {
@@ -25,30 +26,30 @@ const dummyData = [
 const HowToList = props => {
 
   const Background = styled.div`
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
     box-sizing: border-box;
     background-color: #353531;
   `;
 
   const Posts = styled.div`
-    width:25%;
-    margin: 2%;
+    width:350px;
+    height: 200px;
+    margin: 3% auto;
     padding 2%;
     background-color:white;
     border-radius:15px;
     border: #016FB9 solid 5px;
   `;
 
+  console.log(props)
+
   return (
     <div className="articles-container">
-      {dummyData.map(art => {
+      {props.guides.map(art => {
         return (
           <Background>
             <Posts>
-              <h2>{art.title}</h2>
-              <p>{art.body}</p>
+              <h2>{art.guide_name}</h2>
+              <p className='desc'>{art.description}</p>
               <Link
                 style={{
                   color: "white",
@@ -69,4 +70,12 @@ const HowToList = props => {
   );
 };
 
-export default HowToList;
+const mapStateToProps = state => {
+  return {
+    guides: state.guides,
+    author: state.author,
+    isLoggedIn: state.isLoggedIn
+  }
+}
+
+export default connect(mapStateToProps, {})(HowToList)
