@@ -8,23 +8,23 @@ import HowTo from "./HowTo";
 
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { getPosts } from '../actions';
+import { getPosts } from "../actions";
 
 const UserNameContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    background-color: #353531;
-  `;
+  display: flex;
+  flex-direction: column;
+  background-color: #353531;
+`;
 
-  const UserNameContent = styled.div`
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    color: white;
-  `;
+const UserNameContent = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: white;
+`;
 
 const Dashboard = props => {
-  const displayName = localStorage.getItem('author')
+  const displayName = localStorage.getItem("author");
 
   return (
     <UserNameContainer>
@@ -69,7 +69,7 @@ const mapStateToProps = state => {
   return {
     author: state.author,
     isLoggedIn: state.isLoggedIn
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, { getPosts })(Dashboard)
+export default connect(mapStateToProps, { getPosts })(Dashboard);
