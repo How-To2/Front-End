@@ -44,11 +44,13 @@ const NewPost = props => {
   return (
     <Container>
       <StyledForm>
-        <label>Title:</label>
-        <input type="text" />
+        <label htmlFor='guide_name'>Title:</label>
+        <input type="text" name='guide_name' onChange={handleChange} />
+        <label htmlFor='author'>Author:</label>
+        <input type='text' name='author' onChange={handleChange} value='Author' />
 
         <label>Body:</label>
-        <input type="textarea" />
+        <input type="textarea" name='description' className='post-input' onChange={handleChange} />
         <StyledButton type="submit">Submit</StyledButton>
       </StyledForm>
     </Container>
