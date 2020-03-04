@@ -2,10 +2,9 @@ import React from "react";
 import { Link, Route, BrowserRouter as Router } from "react-router-dom";
 import PrivateRoute from "../utils/PrivateRoute";
 
-import Signup from './Signup';
+import Signup from "./Signup";
 
 import HowTo from "./HowTo";
-
 
 import styled from "styled-components";
 
@@ -24,7 +23,9 @@ const Navigation = props => {
   return (
     <>
       <NavBar className="navbar">
-        <h1>How-To<span className='app-title'>App</span></h1>
+        <h1>
+          How-To<span className="app-title">App</span>
+        </h1>
         <Link to="/dashboard">Dashboard</Link>
         <Link to="/login">Login</Link>
         <Link to="/signup">Sign Up</Link>
