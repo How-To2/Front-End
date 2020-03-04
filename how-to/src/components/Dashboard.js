@@ -36,6 +36,7 @@ const Dashboard = props => {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    padding-top: 1%;
     color: white;
   `;
   return (

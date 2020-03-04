@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
+import axios from "axios";
 
 const Container = styled.div`
   display: flex;
@@ -28,16 +30,46 @@ const StyledButton = styled.button`
 `;
 
 const Signup = props => {
+  const [signup, setSignUp] = useState({
+    username: "",
+    password: ""
+  });
+
+  const handleChange = e => {
+    setSignUp({
+      ...signup,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+  };
+
+  async function makePostRequest() {
+    let params = {
+      username: "Bob",
+      passworrd: "Pieee"
+    };
+    let result = await axios.post(
+      "https://how-to-bw2.herokuapp.com/api/auth/register",
+      params
+    );
+
+    console.log(result.data);
+  }
+
   return (
     <Container>
-      <FormContainer>
+      <FormContainer onSubmit={handleSubmit}>
         <h2>Sign Up</h2>
+
         <label>User Name</label>
+        <input type="text" name="userName" onChange={handleChange} />
 
-        <input type="text" name="userName" />
         <label>Password</label>
+        <input type="text" name="password" onChange={handleChange} />
 
-        <input type="text" name="password" />
         <StyledButton type="submit">Sign Up</StyledButton>
       </FormContainer>
     </Container>
