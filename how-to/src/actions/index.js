@@ -44,7 +44,6 @@ export const getPosts = () => dispatch => {
   axiosWithAuth()
     .get("api/guides")
     .then(res => {
-      // console.log(res.data)
       dispatch({ type: GET_POSTS, payload: res.data });
     })
     .catch(err => console.log(err));
@@ -69,9 +68,9 @@ export const createPost = post => dispatch => {
 };
 
 export const editPost = (id, edit) => dispatch => {
-  console.log(edit, id);
+  console.log(edit);
   axiosWithAuth()
-    .put(`/api/guides/${id}`, edit)
+    .put(`api/guides/${id}`, edit)
     .then(res => {
       console.log(res);
       dispatch({ type: UPDATE_POST, payload: edit });
