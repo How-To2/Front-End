@@ -6,9 +6,8 @@ import { connect } from "react-redux";
 
 const Posts = styled.div`
   display: flex;
-  height: fit-content;
-  width: 350px;
-  flex-grow: 1;
+  height: 350px;
+  width: 400px;
   flex-direction: column;
   word-wrap: break-word;
   padding: 2%;
@@ -20,6 +19,12 @@ const Posts = styled.div`
   border: #016fb9 solid 5px;
 `;
 
+const TextStyle = styled.p`
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: wrap;
+`;
+
 const HowToList = props => {
   return (
     <div className="articles-container">
@@ -27,7 +32,7 @@ const HowToList = props => {
         return (
           <Posts>
             <h2>{art.guide_name}</h2>
-            <p className="desc">{art.description}</p>
+            <TextStyle className="desc">{art.description}</TextStyle>
             <Link
               style={{
                 color: "white",

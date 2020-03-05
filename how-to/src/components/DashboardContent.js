@@ -13,7 +13,8 @@ const Filler = styled.div`
 const DashboardContent = () => {
   return (
     <Filler>
-      <h1>mom</h1>
+      <h1>Welcome to the land of free knowledge</h1>
+      <h2>Click New Post to start making guides for anything and everything</h2>
     </Filler>
   );
 };
