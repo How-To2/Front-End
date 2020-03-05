@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const StyledForm = styled.form`
@@ -26,14 +26,33 @@ const StyledButton = styled.button`
 `;
 
 const NewPost = props => {
+
+  const [post, setPost] = useState({
+    guide_name: '',
+    author: '',
+    author_id: '',
+    category: '',
+    img_url: '',
+    description: '',
+  })
+
+  const handleChange = e => {
+    setPost({
+      ...post,
+      [e.target.name]: e.target.value
+    })
+  }
+
   return (
     <Container>
       <StyledForm>
-        <label>Title:</label>
-        <input type="text" />
+        <label htmlFor='guide_name'>Title:</label>
+        <input type="text" name='guide_name' onChange={handleChange} />
+        <label htmlFor='author'>Author:</label>
+        <input type='text' name='author' onChange={handleChange} value='Author' />
 
         <label>Body:</label>
-        <input type="textarea" />
+        <input type="textarea" name='description' className='post-input' onChange={handleChange} />
         <StyledButton type="submit">Submit</StyledButton>
       </StyledForm>
     </Container>

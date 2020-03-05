@@ -4,19 +4,18 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
-const Background = styled.div`
-  box-sizing: border-box;
-  background-color: #353531;
-`;
-
 const Posts = styled.div`
-width:350px;
-height: 200px;
-margin: 3% auto;
-padding 2%;
-background-color:white;
-border-radius:15px;
-border: #016FB9 solid 5px;
+  display: flex;
+  height: 250px;
+  width: 350px;
+  flex-direction: column;
+  word-wrap: break-word;
+  padding: 3%;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 15px;
+  border: #016fb9 solid 5px;
 `;
 
 const HowToList = props => {
@@ -49,7 +48,8 @@ const HowToList = props => {
 const mapStateToProps = state => {
   return {
     guides: state.guides,
-    author: state.author
+    author: state.author,
+    isLoggedIn: state.isLoggedIn
   };
 };
 
