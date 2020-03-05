@@ -31,6 +31,8 @@ justify-content: space-evenly;
 const HowTo = (props) => {
   let guideId = useParams();
 
+  console.log(props)
+
   useEffect(() => {
     props.getPostId(guideId.id);
   }, [])
@@ -50,8 +52,9 @@ const HowTo = (props) => {
           </>) : null}
         </ul>
         <AuthorLikes>
-          <h4>Author:</h4>
-          <h4>Likes:</h4>
+          <h4>Author: {props.singleGuide.guide ? props.singleGuide.guide.author : null}</h4>
+          <h4>Score: {props.singleGuide.guide ? props.singleGuide.guide.score : null}</h4>
+          {props.singleGuide.guide ? (<>{props.singleGuide.guide.author === localStorage.getItem('author') ? (<button className='edit-btn'>Edit</button>) : null}</>)  : null}
         </AuthorLikes>
       </UserPost>
       <ReviewList />

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { axiosWithAuth } from '../utils/axiosWithAuth';
-import { connect } from 'react-redux';
-import { loginUser } from '../actions/index';
-import axios from 'axios';
+import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { connect } from "react-redux";
+import { loginUser } from "../actions/index";
+import axios from "axios";
 
 const Container = styled.div`
   display: flex;
@@ -32,26 +32,25 @@ const StyledButton = styled.button`
 `;
 
 const Login = props => {
-
   const [login, setLogin] = useState({
-    username: '',
-    password: ''
-  })
+    username: "",
+    password: ""
+  });
+  const [logged, setLogged] = useState(false);
 
   const handleChange = e => {
     setLogin({
       ...login,
       [e.target.name]: e.target.value
-    })
-  }
+    });
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.loginUser(login)
-    props.history.push('/dashboard')
-    
-  }
-
+    props.loginUser(login);
+    setLogged(true);
+    props.history.push("/dashboard");
+  };
 
   return (
     <Container>
@@ -61,7 +60,7 @@ const Login = props => {
         <input type="text" name="username" onChange={handleChange} />
 
         <label>Password</label>
-        <input type="password" name="password" onChange={handleChange}/>
+        <input type="password" name="password" onChange={handleChange} />
 
         <StyledButton type="submit">Login</StyledButton>
       </FormContainer>
@@ -73,7 +72,7 @@ const mapStateToProps = state => {
   return {
     isFetching: state.isFetching,
     isLoggedIn: state.isLoggedIn
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, { loginUser })(Login);

@@ -1,15 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Route, BrowserRouter as Router } from "react-router-dom";
 import PrivateRoute from "../utils/PrivateRoute";
-
 import logo from "../images/logo-new.png";
-
 import Signup from "./Signup";
-import HowTo from "./HowTo";
 import styled from "styled-components";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
 import DashboardContent from "./DashboardContent";
+import { connect } from "react-redux";
 
 const NavBar = styled.div`
   display: flex;
@@ -25,6 +23,9 @@ const ImageContainer = styled.div`
 `;
 
 const Navigation = props => {
+
+  const [logged, setLogged] = useState(true);
+  
   return (
     <>
       <NavBar className="navbar">
@@ -32,8 +33,23 @@ const Navigation = props => {
           <img src={logo} />
         </ImageContainer>
         <Link to="/dashboard">Dashboard</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/signup">Sign Up</Link>
+        {localStorage.getItem("token") ? (
+          <Link
+            to="/"
+            onClick={e => {
+              e.preventDefault();
+              localStorage.clear();
+              setLogged(false);
+            }}
+          >
+            Log out
+          </Link>
+        ) : (
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Sign Up</Link>
+          </>
+        )}
       </NavBar>
       <Route path="/signup" component={Signup} />
       <Route path="/login" component={Login} />
@@ -43,4 +59,12 @@ const Navigation = props => {
   );
 };
 
-export default Navigation;
+const mapStateToProps = state => {
+  return {
+    author: state.author,
+    guides: state.guides,
+    singleGuide: state.singleGuide
+  };
+};
+
+export default connect(mapStateToProps, {})(Navigation);
