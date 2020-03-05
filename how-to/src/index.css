@@ -19,6 +19,26 @@ body {
   margin: 2% 5%;
 }
 
+.edit-form {
+  width: 50%;
+  margin: 3% auto;
+}
+
+.edit-form textarea {
+  width: 100%;
+  margin: 1% 0;
+}
+
+.edit-form input {
+  width: 100%;
+  text-align: left;
+  margin: 1% 0;
+}
+
+.edit-form label {
+  text-align: left;
+}
+
 .edit-btn {
   width: 50px;
   height: 30px;
