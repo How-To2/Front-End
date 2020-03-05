@@ -19,7 +19,7 @@ export const newUser = (account) => dispatch => {
     axios.post('https://how-to-3.herokuapp.com/api/auth/register', account).then(res => {
         localStorage.setItem('token', res.data.token)
         localStorage.setItem('author', account.username)
-        dispatch({ type: LOGIN_USER, payload: account.username })
+        dispatch({ type: LOGIN_USER })
     })
     .catch(err => console.log(err))
 }
@@ -49,7 +49,11 @@ export const getPostId = (id) => dispatch => {
     .catch(err => console.log(err))
 }
 
-export const createPost = () => dispatch => {
+export const createPost = (post) => dispatch => {
+    axiosWithAuth().post('api/guides', post).then(res => {
+        console.log(res)
+    })
+    .catch(err => console.log(err))
 }
 
 export const logOut = () => dispatch => {

@@ -6,6 +6,7 @@ export const initialState = {
     guides: [],
     singleGuide: {},
     author: '',
+    author_id: '',
     isLoggedIn: false,
     isFetching: false,
     error: ''
@@ -21,7 +22,7 @@ export const howToReducer = (state = initialState, action) => {
         case LOGIN_USER:
             return {
                  ...state,
-                 author: action.payload,
+                 author: localStorage.getItem('author'),
                  isFetching: false,
                  isLoggedIn: true,
              }
