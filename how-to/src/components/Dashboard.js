@@ -25,9 +25,13 @@ const UserNameContent = styled.div`
 
 const Filler = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  background-color: red;
-  height: 100vh;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  background-image: radial-gradient(circle, #fefb6b 25%, #ff9505, #ec4e20);
 `;
 
 const Dashboard = props => {
@@ -70,9 +74,6 @@ const Dashboard = props => {
         <Route path="/dashboard/new-post" component={NewPost} />
         <Route path="/dashboard/posts/:id" component={HowTo} />
       </UserNameContainer>
-      <Filler>
-        <h1>WOWO</h1>
-      </Filler>
     </>
   );
 };
