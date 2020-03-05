@@ -11,7 +11,8 @@ body {
 .articles-container {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  box-sizing: border-box;
+  justify-content: space-evenly;
   width: 80%;
   height: 100vh;
   margin: 2% auto;
