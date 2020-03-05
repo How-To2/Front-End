@@ -42,7 +42,7 @@ const HowTo = props => {
 
   useEffect(() => {
     props.getPostId(guideId.id);
-  }, []);
+  }, [guideId]);
 
   const handleChange = e => {
     setUpdatePost({
@@ -53,7 +53,13 @@ const HowTo = props => {
 
   const startEdit = e => {
     e.preventDefault();
-    setUpdatePost(props.singleGuide.guide);
+    console.log(props.singleGuide.guide);
+    setUpdatePost({
+      guide_name: props.singleGuide.guide.guide_name,
+      score: props.singleGuide.guide.score,
+      description: props.singleGuide.guide.description,
+      category: props.singleGuide.guide.category
+    });
     setIsEditing(true);
     console.log(updatePost);
   };
