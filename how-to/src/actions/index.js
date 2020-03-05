@@ -31,7 +31,9 @@ export const loginUser = account => dispatch => {
   axios
     .post("https://how-to-3.herokuapp.com/api/auth/login", account)
     .then(res => {
+      console.log(res);
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("author", account.username);
       dispatch({ type: LOGIN_USER });
     })
     .catch(err => console.log(err));

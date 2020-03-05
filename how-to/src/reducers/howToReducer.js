@@ -7,7 +7,6 @@ import {
   ADD_REVIEW,
   LOG_OUT,
   UPDATE_USER,
-  LIKE_POST,
   LOGIN_USER,
   GET_POSTS,
   READ_POST
