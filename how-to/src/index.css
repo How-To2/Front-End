@@ -13,9 +13,9 @@ body {
   flex-flow: row wrap;
   box-sizing: border-box;
   justify-content: space-evenly;
-  width: 80%;
+  width: auto;
   height: 100vh;
-  margin: 2% auto;
+  margin: 2% 5%;
 }
 
 .desc {

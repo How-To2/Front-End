@@ -10,6 +10,7 @@ const Posts = styled.div`
   width: 350px;
   flex-direction: column;
   word-wrap: break-word;
+  margin: 2% 0;
   padding: 3%;
   justify-content: space-evenly;
   box-sizing: border-box;
