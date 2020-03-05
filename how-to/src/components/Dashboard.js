@@ -12,14 +12,15 @@ import { getPosts } from "../actions";
 
 const UserNameContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  padding: 1%;
+  color: white;
+  justify-content: space-evenly;
   background-color: #353531;
 `;
 
-const UserNameContent = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+const Filler = styled.div`
+  background-color: #353531;
+  height: 100vh;
   color: white;
 `;
 
@@ -27,16 +28,18 @@ const Dashboard = props => {
   const displayName = localStorage.getItem("author");
 
   return (
-    <UserNameContainer>
-      <UserNameContent>
+    <div>
+      <UserNameContainer>
         <h2>Welcome, {displayName}!</h2>
 
         <Link
           style={{
+            display: "flex",
+            alignItems: "center",
             color: "white",
+            padding: "0.5% 1%",
             backgroundColor: "#016fb9",
             borderRadius: "10px",
-            padding: "20px",
             textDecoration: "none"
           }}
           to="/dashboard/posts"
@@ -47,21 +50,26 @@ const Dashboard = props => {
 
         <Link
           style={{
+            display: "flex",
+            alignItems: "center",
             color: "white",
             backgroundColor: "#016fb9",
             borderRadius: "10px",
-            padding: "20px",
+            padding: "0.5% 1%",
             textDecoration: "none"
           }}
           to="/dashboard/new-post"
         >
           New Post
         </Link>
-      </UserNameContent>
-      <Route exact path="/dashboard/posts" component={HowToList} />
-      <Route path="/dashboard/new-post" component={NewPost} />
-      <Route path="/dashboard/posts/:id" component={HowTo} />
-    </UserNameContainer>
+        <Route exact path="/dashboard/posts" component={HowToList} />
+        <Route path="/dashboard/new-post" component={NewPost} />
+        <Route path="/dashboard/posts/:id" component={HowTo} />
+      </UserNameContainer>
+      <Filler>
+        <h1>WELCOME TO THE LAND OF KNOWLEDGE</h1>
+      </Filler>
+    </div>
   );
 };
 
