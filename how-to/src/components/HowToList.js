@@ -24,24 +24,22 @@ const HowToList = props => {
     <div className="articles-container">
       {props.guides.map(art => {
         return (
-          <Background>
-            <Posts>
-              <h2>{art.guide_name}</h2>
-              <p className="desc">{art.description}</p>
-              <Link
-                style={{
-                  color: "white",
-                  backgroundColor: "#016fb9",
-                  borderRadius: "10px",
-                  padding: "1% 3%",
-                  textDecoration: "none"
-                }}
-                to={`/dashboard/posts/${art.id}`}
-              >
-                View Full Article
-              </Link>
-            </Posts>
-          </Background>
+          <Posts>
+            <h2>{art.guide_name}</h2>
+            <p className="desc">{art.description}</p>
+            <Link
+              style={{
+                color: "white",
+                backgroundColor: "#016fb9",
+                borderRadius: "10px",
+                padding: "1% 3%",
+                textDecoration: "none"
+              }}
+              to={`/dashboard/posts/${art.id}`}
+            >
+              View Full Article
+            </Link>
+          </Posts>
         );
       })}
     </div>

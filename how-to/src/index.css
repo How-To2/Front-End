@@ -11,10 +11,12 @@ body {
 .articles-container {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
-  width: 80%;
-  height: 100vh;
-  margin: 2% auto;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  justify-content: space-evenly;
+  width: auto;
+  height: fit-content;
+  margin: 2% 5%;
 }
 
 .desc {
