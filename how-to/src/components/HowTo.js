@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ReviewList from "./ReviewList";
 import { connect } from "react-redux";
-import { getPostId } from "../actions/index";
+import { getPostId, editPost } from "../actions/index";
 import { useParams } from "react-router-dom";
 
 const Background = styled.div`
@@ -39,15 +39,29 @@ const HowTo = props => {
     category: ""
   });
 
-  console.log(props);
-
   useEffect(() => {
     props.getPostId(guideId.id);
   }, []);
 
-  const saveEdit = e => {};
+  const handleChange = e => {
+    setUpdatePost({
+      ...updatePost,
+      [e.target.name]: e.target.value
+    });
+  };
 
-  const handleChange = e => {};
+  const startEdit = e => {
+    e.preventDefault();
+    setUpdatePost(props.singleGuide.guide);
+    setIsEditing(true);
+    console.log(updatePost);
+  };
+
+  const submitEdit = e => {
+    e.preventDefault();
+    props.editPost(guideId.id, updatePost);
+    setIsEditing(false);
+  };
 
   return (
     <Background>
@@ -92,10 +106,7 @@ const HowTo = props => {
                 <>
                   {props.singleGuide.guide.author ===
                   localStorage.getItem("author") ? (
-                    <button
-                      className="edit-btn"
-                      onClick={() => setIsEditing(true)}
-                    >
+                    <button className="edit-btn" onClick={startEdit}>
                       Edit
                     </button>
                   ) : null}
@@ -105,45 +116,42 @@ const HowTo = props => {
           </>
         ) : (
           <>
-            <form className="edit-form">
+            <form className="edit-form" onSubmit={submitEdit}>
               <h2>Edit Guide</h2>
               <label htmlFor="guide_name">Title: </label>
               <input
                 type="text"
                 name="guide_name"
-                value={props.singleGuide.guide.guide_name}
-              />
+                onChange={handleChange}
+                value={updatePost.guide_name}
+              ></input>
               <br />
               <label htmlFor="score">Score: </label>
               <input
                 type="number"
                 name="score"
-                value={props.singleGuide.guide.score}
-              />{" "}
+                value={updatePost.score}
+                onChange={handleChange}
+              />
               <br />
               <label htmlFor="category">Category: </label>
               <input
                 type="text"
                 name="category"
-                value={props.singleGuide.guide.category}
-              />{" "}
+                value={updatePost.category}
+                onChange={handleChange}
+              />
               <br />
               <label htmlFor="description">Body: </label>
               <textarea
                 rows="5"
                 cols="10"
                 name="description"
-                value={props.singleGuide.guide.description}
+                value={updatePost.description}
+                onChange={handleChange}
               />
               <br />
-              <button
-                className="edit-btn"
-                onClick={() => {
-                  setIsEditing(false);
-                }}
-              >
-                Save
-              </button>
+              <button className="edit-btn">Save</button>
             </form>
           </>
         )}
@@ -161,4 +169,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { getPostId })(HowTo);
+export default connect(mapStateToProps, { getPostId, editPost })(HowTo);
