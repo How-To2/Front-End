@@ -2,6 +2,7 @@ import React from "react";
 
 import NewPost from "./NewPost";
 import HowToList from "./HowToList";
+import DashboardContent from "./DashboardContent";
 
 import { Link, Route } from "react-router-dom";
 import HowTo from "./HowTo";

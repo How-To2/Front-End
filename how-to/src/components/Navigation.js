@@ -6,6 +6,7 @@ import Signup from "./Signup";
 import styled from "styled-components";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
+import DashboardContent from "./DashboardContent";
 import { connect } from "react-redux";
 
 const NavBar = styled.div`
@@ -22,8 +23,9 @@ const ImageContainer = styled.div`
 `;
 
 const Navigation = props => {
-  const [logged, setLogged] = useState(true);
 
+  const [logged, setLogged] = useState(true);
+  
   return (
     <>
       <NavBar className="navbar">
@@ -52,6 +54,7 @@ const Navigation = props => {
       <Route path="/signup" component={Signup} />
       <Route path="/login" component={Login} />
       <PrivateRoute path="/dashboard" component={Dashboard} />
+      <PrivateRoute exact path="/dashboard" component={DashboardContent} />
     </>
   );
 };
