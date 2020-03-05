@@ -6,11 +6,13 @@ import { connect } from "react-redux";
 
 const Posts = styled.div`
   display: flex;
-  height: 250px;
+  height: fit-content;
   width: 350px;
+  flex-grow: 1;
   flex-direction: column;
   word-wrap: break-word;
-  padding: 3%;
+  padding: 2%;
+  margin: 2%;
   justify-content: space-evenly;
   box-sizing: border-box;
   background-color: white;
