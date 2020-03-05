@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { connect } from 'react-redux';
-import { newUser } from '../actions/index';
+import { connect } from "react-redux";
+import { newUser } from "../actions/index";
 
 const Container = styled.div`
   display: flex;
@@ -30,31 +30,28 @@ const StyledButton = styled.button`
 `;
 
 const Signup = props => {
-
   const [newAcc, setNewAcc] = useState({
-    username: '',
-    password: ''
-  })
-  const [log, setLog] = useState(false);
+    username: "",
+    password: ""
+  });
 
-  // console.log(props)
+  const [log, setLog] = useState(false);
 
   const handleNew = e => {
     setNewAcc({
       ...newAcc,
       [e.target.name]: e.target.value
-    })
-  }
+    });
+  };
 
   const handleCreate = e => {
     e.preventDefault();
-    console.log(newAcc)
-    setLog(false)
-    props.newUser(newAcc)
-    setLog(true)
-    props.history.push('/dashboard')
-  }
-
+    console.log(newAcc);
+    setLog(false);
+    props.newUser(newAcc);
+    setLog(true);
+    props.history.push("/dashboard");
+  };
 
   return (
     <Container>
@@ -76,7 +73,7 @@ const mapStateToProps = state => {
   return {
     isLoggedIn: state.isLoggedIn,
     isFetching: state.isFetching
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, { newUser })(Signup)
+export default connect(mapStateToProps, { newUser })(Signup);

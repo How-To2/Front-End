@@ -23,9 +23,8 @@ const ImageContainer = styled.div`
 `;
 
 const Navigation = props => {
-
   const [logged, setLogged] = useState(true);
-  
+
   return (
     <>
       <NavBar className="navbar">

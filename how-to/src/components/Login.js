@@ -47,6 +47,7 @@ const Login = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    setLogged(false);
     props.loginUser(login);
     setLogged(true);
     props.history.push("/dashboard");
