@@ -12,6 +12,7 @@ const Background = styled.div`
   justify-content: center;
   box-sizing: border-box;
   background-color: #353531;
+  height: 100vh;
 `;
 
 const UserPost = styled.div`
