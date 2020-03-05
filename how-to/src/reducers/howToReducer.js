@@ -9,7 +9,8 @@ import {
   UPDATE_USER,
   LOGIN_USER,
   GET_POSTS,
-  READ_POST
+  READ_POST,
+  UPDATE_POST
 } from "../actions/index";
 
 export const initialState = {
@@ -49,6 +50,11 @@ export const howToReducer = (state = initialState, action) => {
         guides: action.payload
       };
     case READ_POST:
+      return {
+        ...state,
+        singleGuide: action.payload
+      };
+    case UPDATE_POST:
       return {
         ...state,
         singleGuide: action.payload
