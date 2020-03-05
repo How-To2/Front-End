@@ -9,6 +9,7 @@ import HowTo from "./HowTo";
 import styled from "styled-components";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
+import DashboardContent from "./DashboardContent";
 
 const NavBar = styled.div`
   display: flex;
@@ -24,7 +25,6 @@ const ImageContainer = styled.div`
 `;
 
 const Navigation = props => {
-  
   return (
     <>
       <NavBar className="navbar">
@@ -38,6 +38,7 @@ const Navigation = props => {
       <Route path="/signup" component={Signup} />
       <Route path="/login" component={Login} />
       <PrivateRoute path="/dashboard" component={Dashboard} />
+      <PrivateRoute exact path="/dashboard" component={DashboardContent} />
     </>
   );
 };
