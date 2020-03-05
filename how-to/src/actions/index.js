@@ -43,10 +43,13 @@ export const getPosts = () => dispatch => {
 
 export const getPostId = (id) => dispatch => {
     axiosWithAuth().get(`api/guides/${id}`).then(res => {
-        // console.log(res.data)
+        console.log(res.data)
         dispatch({ type: READ_POST, payload: res.data })
     })
     .catch(err => console.log(err))
+}
+
+export const createPost = () => dispatch => {
 }
 
 export const logOut = () => dispatch => {
