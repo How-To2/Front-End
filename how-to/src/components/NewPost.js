@@ -42,6 +42,7 @@ const NewPost = props => {
     description: '',
     category: '',
   })
+  const [load, setLoad] = useState(false)
 
   const handleChange = e => {
     setPost({
@@ -52,7 +53,10 @@ const NewPost = props => {
 
   const handlePost = e => {
     e.preventDefault();
+    setLoad(true)
     props.createPost(post)
+    setLoad(false)
+    props.history.push('/dashboard/posts');
   }
 
   return (
@@ -64,7 +68,7 @@ const NewPost = props => {
         <input type='number' name='score' onChange={handleChange} />
         <label htmlFor='category'>Category:</label>
         <input type='text' name='category' onChange={handleChange} />
-        <label>Body:</label>
+        <label htmlFor='description'>Body:</label>
         <textarea rows='5' cols='10' name='description' className='post-input' onChange={handleChange} />
         <StyledButton type="submit">Submit</StyledButton>
       </StyledForm>
