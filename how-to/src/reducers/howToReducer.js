@@ -16,7 +16,7 @@ export const howToReducer = (state = initialState, action) => {
         case CREATE_USER:
             return {
                 ...state,
-                isFetching: true,
+                isLoggedIn: true
             }
         case LOGIN_USER:
             return {
@@ -39,6 +39,13 @@ export const howToReducer = (state = initialState, action) => {
             return {
                 ...state,
                 singleGuide: action.payload
+            }
+        case LOG_OUT:
+            return {
+                guides: [],
+                singleGuide: {},
+                isLoggedIn: false,
+                author: ''
             }
         default:
             return {

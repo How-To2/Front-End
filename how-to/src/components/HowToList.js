@@ -51,7 +51,8 @@ const HowToList = props => {
 const mapStateToProps = state => {
   return {
     guides: state.guides,
-    author: state.author
+    author: state.author,
+    isLoggedIn: state.isLoggedIn
   };
 };
 

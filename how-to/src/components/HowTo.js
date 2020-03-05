@@ -61,7 +61,8 @@ const HowTo = (props) => {
 
 const mapStateToProps = state => {
   return {
-    singleGuide: state.singleGuide
+    singleGuide: state.singleGuide,
+    isLoggedIn: state.isLoggedIn
   }
 }
 
