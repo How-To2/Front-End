@@ -23,45 +23,57 @@ const UserNameContent = styled.div`
   color: white;
 `;
 
+const Filler = styled.div`
+  display: flex;
+  justify-content: center;
+  background-color: red;
+  height: 100vh;
+`;
+
 const Dashboard = props => {
   const displayName = localStorage.getItem("author");
 
   return (
-    <UserNameContainer>
-      <UserNameContent>
-        <h2>Welcome, {displayName}!</h2>
+    <>
+      <UserNameContainer>
+        <UserNameContent>
+          <h2>Welcome, {displayName}!</h2>
 
-        <Link
-          style={{
-            color: "white",
-            backgroundColor: "#016fb9",
-            borderRadius: "10px",
-            padding: "20px",
-            textDecoration: "none"
-          }}
-          to="/dashboard/posts"
-          onClick={props.getPosts}
-        >
-          View Posts
-        </Link>
+          <Link
+            style={{
+              color: "white",
+              backgroundColor: "#016fb9",
+              borderRadius: "10px",
+              padding: "20px",
+              textDecoration: "none"
+            }}
+            to="/dashboard/posts"
+            onClick={props.getPosts}
+          >
+            View Posts
+          </Link>
 
-        <Link
-          style={{
-            color: "white",
-            backgroundColor: "#016fb9",
-            borderRadius: "10px",
-            padding: "20px",
-            textDecoration: "none"
-          }}
-          to="/dashboard/new-post"
-        >
-          New Post
-        </Link>
-      </UserNameContent>
-      <Route exact path="/dashboard/posts" component={HowToList} />
-      <Route path="/dashboard/new-post" component={NewPost} />
-      <Route path="/dashboard/posts/:id" component={HowTo} />
-    </UserNameContainer>
+          <Link
+            style={{
+              color: "white",
+              backgroundColor: "#016fb9",
+              borderRadius: "10px",
+              padding: "20px",
+              textDecoration: "none"
+            }}
+            to="/dashboard/new-post"
+          >
+            New Post
+          </Link>
+        </UserNameContent>
+        <Route exact path="/dashboard/posts" component={HowToList} />
+        <Route path="/dashboard/new-post" component={NewPost} />
+        <Route path="/dashboard/posts/:id" component={HowTo} />
+      </UserNameContainer>
+      <Filler>
+        <h1>WOWO</h1>
+      </Filler>
+    </>
   );
 };
 
