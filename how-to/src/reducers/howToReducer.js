@@ -4,7 +4,8 @@ import {
   LOGIN_USER,
   GET_POSTS,
   READ_POST,
-  UPDATE_POST
+  UPDATE_POST,
+  DELETE_POST
 } from "../actions/index";
 
 export const initialState = {
@@ -52,6 +53,12 @@ export const howToReducer = (state = initialState, action) => {
       return {
         ...state,
         singleGuide: action.payload
+      };
+    case DELETE_POST:
+      return {
+        ...state,
+        singleGuide: {},
+        guides: []
       };
     case LOG_OUT:
       return {

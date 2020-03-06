@@ -78,6 +78,17 @@ export const editPost = (id, edit) => dispatch => {
     .catch(err => console.log(err));
 };
 
+export const deletePost = id => dispatch => {
+  console.log(id);
+  axiosWithAuth()
+    .delete(`api/guides/${id}`)
+    .then(res => {
+      console.log(res);
+      dispatch({ type: DELETE_POST });
+    })
+    .catch(err => console.log(err));
+};
+
 export const logOut = () => dispatch => {
   localStorage.clear();
   dispatch({ type: LOG_OUT });
