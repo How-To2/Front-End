@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import NewPost from "./NewPost";
 import HowToList from "./HowToList";
@@ -37,6 +37,13 @@ const Filler = styled.div`
 
 const Dashboard = props => {
   const displayName = localStorage.getItem("author");
+
+  const [logged, setLogged] = useState(false);
+
+  useEffect(() => {
+    setLogged(true);
+    setLogged(false);
+  }, []);
 
   return (
     <>

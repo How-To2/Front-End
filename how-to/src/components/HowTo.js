@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ReviewList from "./ReviewList";
 import { connect } from "react-redux";
-import { getPostId, editPost } from "../actions/index";
+import { getPostId, editPost, deletePost } from "../actions/index";
 import { useParams } from "react-router-dom";
 
 const Background = styled.div`
@@ -39,6 +39,7 @@ const HowTo = props => {
     description: "",
     category: ""
   });
+  const [logged, setLogged] = useState(false);
 
   useEffect(() => {
     props.getPostId(guideId.id);
@@ -113,9 +114,20 @@ const HowTo = props => {
                 <>
                   {props.singleGuide.guide.author ===
                   localStorage.getItem("author") ? (
-                    <button className="edit-btn" onClick={startEdit}>
-                      Edit
-                    </button>
+                    <>
+                      <button className="edit-btn" onClick={startEdit}>
+                        Edit
+                      </button>
+                      <button
+                        className="edit-btn"
+                        onClick={() => {
+                          props.deletePost(guideId.id);
+                          props.history.push("/dashboard/posts");
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </>
                   ) : null}
                 </>
               ) : null}
@@ -176,4 +188,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { getPostId, editPost })(HowTo);
+export default connect(mapStateToProps, { getPostId, editPost, deletePost })(
+  HowTo
+);
